@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Results summary</title>
+</head>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Hanken Grotesk;
+  }
+
+  body {
+    width: 1440px;
+    height: 100vh;
+  }
+
+  .container-all {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .items {
+    width: 50vw;
+    height: 70vh;
+    display: flex;
+  }
+
+  .container-left {
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    border-radius: 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-left #result {
+    color: hsl(241, 100%, 89%);
+    font-size: 1.5em;
+    padding: 8%;
+    font-weight: 500;
+  }
+
+  .container-left #great {
+    color: white;
+    font-weight: 700;
+    padding: 5%;
+  }
+
+  .container-left #below-great {
+    color: hsl(241, 100%, 89%);
+    padding: 0 15%;
+  }
+
+  .circle {
+    width: 50%;
+    height: 35%;
+    background-color: lightcoral;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+    margin-bottom: 0;
+  }
+
+  .circle .number {
+    font-size: 4em;
+    color: white;
+  }
+
+  .circle .below-number {
+    position: absolute;
+    bottom: 20%;
+    color: hsl(241, 100%, 89%);
+  }
+
+  .container-right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+  }
+
+  .container-right h1 {
+    justify-content: flex-start;
+    padding: 5% 0 5% 5%;
+    font-weight: 700;
+  }
+
+  .container-text {
+    margin-top: 10px;
+    display: flex;
+    width: 90%;
+    position: relative;
+    padding: 5% 0 5% 0;
+    border-radius: 15px;
+  }
+
+  .container-text:nth-child(1){
+    background-color: hsl(0, 100%, 96%);
+  }
+
+  .container-text:nth-child(2){
+    background-color: hsl(39, 100%, 96%);
+  }
+
+  .container-text:nth-child(3){
+    background-color: hsl(166, 100%, 96%);
+  }
+
+  .container-text:nth-child(4){
+    background-color: hsl(234, 85%, 96%);
+  }
+
+  .container-all-text {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-text img{
+    padding-left: 4%;
+    padding-right: 2%;
+  }
+  
+  .nota{
+    position: absolute;
+    right: 20px;
+  }
+
+  .container-all-text button{
+    width: 90%;
+    height: 12%;
+    margin-top: 10%;
+    border-radius: 25px;
+    background-color: hsl(224, 30%, 27%);
+    color: white;
+    font-size: 1.2em;
+  }
+
+  .container-all-text button:hover{
+    cursor: pointer;
+  }
+
+  @media (max-width: 376px) {
+    body{
+      width: 375px;
+      height: 100vh;
+    }
+
+    .container-all{
+      width: 100%;
+      height: 100vh;
+    }
+    
+    .container-left{
+      width: 100%;
+      border-radius: 0;
+      border-bottom-left-radius: 10%;
+      border-bottom-right-radius: 10%;
+      height: 45vh;
+    }
+
+    .container-left #result{
+      padding: 4%;
+    }
+
+    .circle{
+      width: 150px;
+      height: 50%;
+    }
+
+    .circle .number{
+      font-size: 2em;
+    }
+
+    .circle .below-number{
+      font-size: 0.8em;
+      bottom: 20%;
+    }
+
+    .container-left #great{
+      font-size: 1.2em;
+      padding: 0;
+    }
+
+    .container-left #below-great{
+      font-size: 1.0em;
+      padding-bottom: 5%;
+    }
+
+    .container-right{
+      width: 100%;
+      height: 50%;
+      border: 0px;
+      box-shadow: none;
+      position: relative;
+    }
+
+    .container-right button{
+      position: absolute;
+      bottom: -11%;
+    }
+
+    .container-right h1{
+      padding: 3% 0 0 5%;
+      font-size: 1.2em;
+    }
+
+    .items{
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+}
+</style>
+
+<body>
+  <div class="container-all">
+    <div class="items">
+      <div class="container-left">
+
+        <p id="result">Your Result</p>
+        <div class="circle">
+          <p class="number">76</p><br>
+          <p class="below-number">of 100</p>
+        </div>
+
+        <h1 id="great">Great</h1>
+        <p id="below-great">You scored higher than 65% of the people who have taken these tests.</p>
+
+      </div>
+
+      <div class="container-right">
+        <h1>Sumary</h1>
+
+        <div class="container-all-text">
+          <div class="container-text">
+            <img src="assets/images/icon-reaction.svg" alt="">
+            <p>Reaction</p>
+            <p class="nota"><strong>80</strong>/100</p>
+          </div>
+
+          <div class="container-text">
+            <img src="assets/images/icon-memory.svg" alt="">
+            <p>Memory</p>
+            <p class="nota"><strong>92</strong>/100</p>
+          </div>
+
+          <div class="container-text">
+            <img src="assets/images/icon-verbal.svg" alt="">
+            <p>Verbal</p>
+            <p class="nota"><strong>61</strong>/100</p>
+          </div>
+
+          <div class="container-text">
+            <img src="assets/images/icon-visual.svg" alt="">
+            <p>Visual</p>
+            <p class="nota"><strong>72</strong>/100</p>
+          </div>
+
+          <button>Continue</button>
+        </div>
+      
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
